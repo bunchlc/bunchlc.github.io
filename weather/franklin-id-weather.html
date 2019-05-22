@@ -8,11 +8,11 @@
   <link href="screen.css" rel="stylesheet" type="text/css" media="screen">
  </head>
  <body>
-  <header id="page-header">
+  <header class="page-header">
     <img src="img/plan-images/plan-images/logo.jpeg" alt="The Weather Site logo">
     <h1 id="SiteName">The Weather Site</h1>
   </header>
-  <nav id="navigation">
+  <nav class="navigation">
    <ul>
     <li id="current"><a href="#" title="Go to the Weather Site home page">Current</a></li>
     <li id="search"><a href="#" title="Find the weather in a different location">Search</a></li>
@@ -20,36 +20,39 @@
     <li id="greenville"><a href="#" title="Go to Greenville's Weather">Greenville</a></li>
    </ul>
   </nav>
-  <main id="main">
-    <section>
+  <main>
+    <section class="area">
       <h2 id="town">Franklin, ID</h2>
-      <ul id="locData">
-        <li id="zip"><b>Zip:</b> 83237</li>
-        <li id="elevation"><b>Elevation:</b> 1514.246</li>
-        <li id="location"><b>Location:</b> 42.07 N, 111.79 W</li>
-      </ul> 
+      <dl id="localData">
+        <dt>Zip:</dt>
+          <dd id="zip"> 83237</dd>
+        <dt>Elevation:</dt>
+          <dd><span id="elevation">1514.246</span> m/ft</dd>
+        <dt>Location:</dt>
+          <dd id="location"> 42.07 N, 111.79 W</dd>
+      </dl> 
     </section>
-    <section>
-      <h2>Temperature</h2>
-      <h2>40&deg;F</h2>
-      <ul>
-        <li>64&deg;F</li>
-        <li>41&deg;F</li>
+    <section class="mainWeather">
+      <h2 id="tempHead">Temperature</h2>
+      <h2 id="currentTemp">40&deg;F</h2>
+      <ul id="todayForecast">
+        <li id="forecastHigh">64&deg;F</li>
+        <li id="forecastLow">41&deg;F</li>
       </ul>
     </section>
-    <section>
-      <h2>Wind</h2>
+    <section class="mainWind">
+      <h2 id="windHeader">Wind</h2>
       <ul>
-        <li>5 mph</li>
-      </ul>
-      <p><b>Direction:</b> SW</p>
-      <p><b>Gusts</b> 10-12mph</p>
+        <li id="windSpeed">5 mph</li>
+        <li id="windDirection"><b>Direction:</b> SW</li>
+        <li id="windGusts"><b>Gusts</b> 10-12mph</li>
+      </ul>  
     </section>
-    <section>
-      <h3>Rain</h3>
+    <section class="precipitation">
+      <h3 id="currentCondition">Rain</h3>
     </section>
-    <section>
-      <h3>Hourly Forecast</h3>
+    <section class="hourlyForecast">
+      <h3 id="HFHeader">Hourly Forecast</h3>
       <p>41&deg;F, 41&deg;F, 41&deg;F, 41&deg;F, 41&deg;F, 41&deg;F, 42&deg;F, 44&deg;F, 44&deg;F, 46&deg;F, 49&deg;F, 51&deg;F, 55&deg;F</p>
     </section>
   </main>
@@ -69,7 +72,7 @@
   *"Wind": "5",
   *"Direction": "SW",
   *"Gusts": "10-12",
-  "Summary": "Rain",
+  *"Summary": "Rain",
   *"Longitude": 111.79,
   *"Latitude": 42.07,
   *"Elevation": 1514.246,
