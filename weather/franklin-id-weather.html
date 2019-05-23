@@ -5,11 +5,11 @@
   <title>Local Weather | Franklin, ID</title>
   <meta name="description" content="Latest weather information">
   <meta name="viewport" content="width=device-width">
-  <link href="screen.css" rel="stylesheet" type="text/css" media="screen">
+  <link href="CSS/screen.css" rel="stylesheet" type="text/css" media="screen">
  </head>
  <body>
-  <header class="page-header">
-    <img src="img/plan-images/plan-images/logo.jpeg" alt="The Weather Site logo">
+  <header id="page-header">
+    <img id="logo" src="img/plan-images/plan-images/logo.jpeg" alt="The Weather Site Logo"></img>
     <h1 id="SiteName">The Weather Site</h1>
   </header>
   <nav class="navigation">
@@ -21,7 +21,7 @@
    </ul>
   </nav>
   <main>
-    <section class="area">
+    <section id="area">
       <h2 id="town">Franklin, ID</h2>
       <dl id="localData">
         <dt>Zip:</dt>
@@ -32,7 +32,7 @@
           <dd id="location"> 42.07 N, 111.79 W</dd>
       </dl> 
     </section>
-    <section class="mainWeather">
+    <section id="mainWeather" class="tile">
       <h2 id="tempHead">Temperature</h2>
       <h2 id="currentTemp">40&deg;F</h2>
       <ul id="todayForecast">
@@ -40,7 +40,7 @@
         <li id="forecastLow">41&deg;F</li>
       </ul>
     </section>
-    <section class="mainWind">
+    <section id="mainWind" class="tile">
       <h2 id="windHeader">Wind</h2>
       <ul>
         <li id="windSpeed">5 mph</li>
@@ -48,10 +48,10 @@
         <li id="windGusts"><b>Gusts</b> 10-12mph</li>
       </ul>  
     </section>
-    <section class="precipitation">
+    <section id="summary" class="tile">
       <h3 id="currentCondition">Rain</h3>
     </section>
-    <section class="hourlyForecast">
+    <section id="hourlyForecast" class="tile">
       <h3 id="HFHeader">Hourly Forecast</h3>
       <p>41&deg;F, 41&deg;F, 41&deg;F, 41&deg;F, 41&deg;F, 41&deg;F, 42&deg;F, 44&deg;F, 44&deg;F, 46&deg;F, 49&deg;F, 51&deg;F, 55&deg;F</p>
     </section>

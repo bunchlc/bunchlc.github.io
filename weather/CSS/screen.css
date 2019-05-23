@@ -1,4 +1,64 @@
-/* 1. Imports
-2. General Rules
-3. Mobile rules
-4. Large(r) Rules */
+
+/* 1.  Includes (fonts and supplementary stylesheets) */
+/* 1.1 Normalize Import */  
+@import url('normalize.css');    
+/* 1.2 Google Font Import */    
+@import url('https://fonts.googleapis.com/css?family=Sansita'); 
+
+/* 2. General Rules */
+html {
+   box-sizing: border-box;
+}
+
+*, *:before, *:after{
+   box-sizing: inherit
+}
+
+nav ul li{
+   display: inline-block;
+   list-style: none;
+}
+
+
+
+body{
+   font-family: helvetica, verdana, sans-serif;
+   size: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-family: sansita, Eurostyle, sans-serif;
+}
+
+.tile{
+   background-color: rgba(200,200,200, .6);
+   margin: .2em auto;
+   border: 1px solid;
+   border-radius: 15px;
+   text-align: center;
+}
+
+footer{
+   margin-bottom: 2em; 
+}
+
+#SiteName{
+   font-size: 2em;
+   font-weight: 600;
+}
+
+/* 3. Mobile rules */
+nav {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   background-color:#0e89d5;
+   
+}
+
+#page-header{
+   background-color:#0e89d5;
+}
+
+/* 4. Large(r) Rules */
+
