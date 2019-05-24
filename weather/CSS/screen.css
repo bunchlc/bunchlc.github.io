@@ -1,11 +1,19 @@
-
-/* 1.  Includes (fonts and supplementary stylesheets) */
+/***************************************************
+* Table of COntents
+* 1.--Imports
+* 2.--General Styles
+* --2a.--Navigatioin
+* --2b.--Current Weather
+* --2c.--Wind Styles
+* 3.--Mobile First 
+****************************************************/
+/* 1.  Imports (fonts and supplementary stylesheets) */
 /* 1.1 Normalize Import */  
 @import url('normalize.css');    
 /* 1.2 Google Font Import */    
 @import url('https://fonts.googleapis.com/css?family=Sansita'); 
 
-/* 2. General Rules */
+/* 2. General Styles */
 html {
    box-sizing: border-box;
 }
@@ -14,12 +22,10 @@ html {
    box-sizing: inherit
 }
 
-nav ul li{
-   display: inline-block;
+nav, ul, li{
+   text-decoration: none;
    list-style: none;
 }
-
-
 
 body{
    font-family: helvetica, verdana, sans-serif;
@@ -30,34 +36,108 @@ h1, h2, h3, h4, h5, h6 {
    font-family: sansita, Eurostyle, sans-serif;
 }
 
+#footer{
+   margin-bottom: 2em; 
+   background-color: #0e89d5;
+}
+
 .tile{
    background-color: rgba(200,200,200, .6);
    margin: .2em auto;
    border: 1px solid;
    border-radius: 15px;
    text-align: center;
-}
-
-footer{
-   margin-bottom: 2em; 
-}
-
-#SiteName{
-   font-size: 2em;
-   font-weight: 600;
-}
-
-/* 3. Mobile rules */
-nav {
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   background-color:#0e89d5;
-   
+   clear: left;
 }
 
 #page-header{
    background-color:#0e89d5;
+}
+
+#logo{
+   float: left;
+   width: 40px;
+   margin: 1px;
+}
+
+#SiteName{
+   border: 3px solid #0e89d5;
+   font-size: 2em;
+   font-weight: 600;
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+
+#town{
+   margin: 0px;
+}
+
+#localData{
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+
+#localData li{
+   display: inline-block;
+}
+
+dt{
+   font-weight: bold;
+}
+
+dd{
+   margin-left: 4px;
+   margin-right: 10px;
+}
+
+/* 2a. Navigation */
+#navigation ul li{
+   min-height: 40px;
+   display: inline-block;
+}
+
+#navigation a{
+   text-decoration: none;
+   color: #fff;
+   display: block;
+   padding: 1em;
+}
+
+#style{
+   font-size: 10px;
+    text-align: center;
+    padding-left: 0;
+}
+
+/* 3. Mobile rules */
+nav{
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   background-color:#0e89d5;
+   width: 100vw;
+}
+
+a:link{
+   color: white;
+   text-decoration: none;
+}
+
+a:hover{
+   color: white;
+   text-decoration: underline;
+}
+
+a:visited{
+   color: white;
+   text-decoration: none;
+}
+
+#AverageHF{
+   overflow: scroll;
+   display: flex;
+   padding-left: 4px;
+   padding-right: 10px;
 }
 
 /* 4. Large(r) Rules */

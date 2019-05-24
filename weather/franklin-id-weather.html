@@ -12,8 +12,8 @@
     <img id="logo" src="img/plan-images/plan-images/logo.jpeg" alt="The Weather Site Logo"></img>
     <h1 id="SiteName">The Weather Site</h1>
   </header>
-  <nav class="navigation">
-   <ul>
+  <nav id="navigation">
+   <ul id="style">
     <li id="current"><a href="#" title="Go to the Weather Site home page">Current</a></li>
     <li id="search"><a href="#" title="Find the weather in a different location">Search</a></li>
     <li id="franklin"><a href="#" title="Go to Franlkin, ID's Weather">Franklin</a></li>
@@ -22,12 +22,12 @@
   </nav>
   <main>
     <section id="area">
-      <h2 id="town">Franklin, ID</h2>
+      <h2 id="town">Franklin, Idaho</h2>
       <dl id="localData">
         <dt>Zip:</dt>
           <dd id="zip"> 83237</dd>
         <dt>Elevation:</dt>
-          <dd><span id="elevation">1514.246</span> m/ft</dd>
+          <dd><span id="elevation">1514.246</span> m/ft|</dd>
         <dt>Location:</dt>
           <dd id="location"> 42.07 N, 111.79 W</dd>
       </dl> 
@@ -53,7 +53,21 @@
     </section>
     <section id="hourlyForecast" class="tile">
       <h3 id="HFHeader">Hourly Forecast</h3>
-      <p>41&deg;F, 41&deg;F, 41&deg;F, 41&deg;F, 41&deg;F, 41&deg;F, 42&deg;F, 44&deg;F, 44&deg;F, 46&deg;F, 49&deg;F, 51&deg;F, 55&deg;F</p>
+      <ol id="AverageHF">
+        <li>10am:</li><li>41&deg;F|</li>
+        <li>11am:</li><li>41&deg;F|</li> 
+        <li>12pm:</li><li>41&deg;F|</li> 
+        <li>1pm:</li><li>41&deg;F|</li> 
+        <li>2pm:</li><li>41&deg;F|</li> 
+        <li>3pm:</li><li>41&deg;F|</li> 
+        <li>4pm:</li><li>42&deg;F|</li> 
+        <li>5pm:</li><li>44&deg;F|</li> 
+        <li>6pm:</li><li>44&deg;F| </li>
+        <li>7pm:</li><li>46&deg;F|</li> 
+        <li>8pm:</li><li>49&deg;F|</li> 
+        <li>9pm:</li><li>51&deg;F|</li> 
+        <li>10pm:</li><li>55&deg;F</li>
+      </ol>
     </section>
   </main>
   <footer id="footer">
