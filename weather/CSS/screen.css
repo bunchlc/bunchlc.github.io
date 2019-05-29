@@ -78,6 +78,8 @@ h1, h2, h3, h4, h5, h6 {
    margin-top: 0px;
    margin-bottom: 0px;
    display: flex;
+   white-space: nowrap;
+   font-size: 10px;
 }
 
 #localData li{
@@ -91,6 +93,29 @@ dt{
 dd{
    margin-left: 4px;
    margin-right: 10px;
+}
+
+#mainWeather ul{
+   display: flex;
+   padding-left: 97px;
+}
+
+#mainWeather li{
+   margin: 8px;
+}
+
+#currentTemp{
+   font-size: 3em;
+   margin: 0px;
+   font-style: normal;
+}
+
+#forecastHigh{
+   color: red;
+}
+
+#forecastLow{
+   color: blue;
 }
 
 /* 2a. Navigation */
@@ -108,11 +133,20 @@ dd{
 
 #style{
    font-size: 10px;
-    text-align: center;
-    padding-left: 0;
+   text-align: center;
+   padding-left: 0;
+}
+
+#conditionVisual{
+   width: 50%;
 }
 
 /* 3. Mobile rules */
+/* @media screen and (min-width: 780px){
+   #conditions{
+      display: flex;
+   }
+} */
 nav{
    position: fixed;
    bottom: 0;
