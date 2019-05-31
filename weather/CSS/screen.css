@@ -124,7 +124,7 @@ nav{
 }
 
 #style{
-   font-size: 10px;
+   font-size: large;
    padding-left: 0;
    display: flex;
    justify-content: space-around;
