@@ -169,4 +169,9 @@ a:visited{
 
 
 /* 4. Large(r) Rules */
-
+@media screen and (min-width: 780.01 px){
+   .tile{
+      display: flex;
+      
+   }
+}
