@@ -32,27 +32,29 @@
           <dd id="location"> 42.07 N, 111.79 W</dd>
       </dl> 
     </section>
-    <section id="mainWeather" class="tile">
-      <h2 id="tempHead">Temperature</h2>
-      <h2 id="currentTemp">40&deg;F</h2>
-      <ul id="todayForecast">
-        <li id="forecastHigh">64&deg;F</li>
-        <li id="forecastLow">41&deg;F</li>
-      </ul>
-    </section>
-    <section id="mainWind" class="tile">
-      <h2 id="windHeader">Wind</h2>
-      <ul>
-        <li id="windSpeed">5 mph</li>
-        <li><img src="img/weather-site-images/wind-pointer.png" alt=""></li>
-        <li id="windDirection"><b>Direction:</b> SW</li>
-        <li id="windGusts"><b>Gusts</b> 10-12mph</li>
-      </ul>  
-    </section>
-    <section id="summary" class="tile">
-      <h3 id="currentCondition">Rain</h3>
-      <img id="conditionVisual" src="img/plan-images/raindrops.jpg" alt="Rainy Day">
-    </section>
+    <div id="tileFormat">
+      <section id="mainWeather" class="tile">
+        <h2 id="tempHead">Temperature</h2>
+        <h2 id="currentTemp">40&deg;F</h2>
+        <ul id="todayForecast">
+          <li id="forecastHigh">64&deg;F</li>
+          <li id="forecastLow">41&deg;F</li>
+        </ul>
+      </section>
+      <section id="mainWind" class="tile">
+        <h2 id="windHeader">Wind</h2>
+        <ul>
+          <li id="windSpeed">5 mph</li>
+          <li><img src="img/weather-site-images/wind-pointer.png" alt=""></li>
+          <li id="windDirection"><b>Direction:</b> SW</li>
+          <li id="windGusts"><b>Gusts</b> 10-12mph</li>
+        </ul>  
+      </section>
+      <section id="summary" class="tile">
+        <h3 id="currentCondition">Rain</h3>
+        <img id="conditionVisual" src="img/plan-images/raindrops.jpg" alt="Rainy Day">
+      </section>
+    </div>
     <section id="hourlyForecast" class="tile">
       <h3 id="HFHeader">Hourly Forecast</h3>
       <ol id="AverageHF">
