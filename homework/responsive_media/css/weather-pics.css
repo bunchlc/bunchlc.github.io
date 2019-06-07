@@ -46,3 +46,15 @@ img{
    width: 100%;
    height: auto;
 }
+
+@media only screen and (max-width: 760px) {
+   .large {
+     display: none;
+   }
+ }
+
+@media only screen and (min-width: 760.01px) {
+   .small {
+     display: none;
+   }
+}
