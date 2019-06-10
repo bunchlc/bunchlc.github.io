@@ -156,6 +156,17 @@ a:visited{
    padding-right: 10px;
 }
 
+#mainWind{
+   background-image: url("../img/weather-site-images/raw-images/wind-pointer.png");
+   background-repeat: no-repeat;
+   background-position: 50%;
+   height: 300px;
+}
+
+#windSpeed{
+   margin: 75px;
+}
+
 /* 3. Mobile rules */
 @media screen and (max-width: 760px){
    nav{
