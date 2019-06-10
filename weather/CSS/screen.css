@@ -52,6 +52,12 @@ h1, h2, h3, h4, h5, h6 {
    clear: left;
 }
 
+/* #tileFormat{
+   background-image: url("../img/weather-site-images/rain-650-o.jpg");
+   height: 600px;
+   background-repeat: no-repeat;
+} */
+
 #page-header{
    background-color:#0e89d5;
 }
