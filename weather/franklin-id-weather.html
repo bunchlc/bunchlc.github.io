@@ -1,53 +1,57 @@
 <!doctype html>
 <html lang="en-us">
- <head>
+
+<head>
   <meta charset="UTF-8">
   <title>Local Weather | Franklin, ID</title>
   <meta name="description" content="Latest weather information">
   <meta name="viewport" content="width=device-width">
   <link href="CSS/screen.css" rel="stylesheet" type="text/css" media="screen">
- </head>
- <body>
+</head>
+
+<body>
   <header id="page-header">
     <img id="logo" src="img/plan-images/logo.jpeg" alt="The Weather Site Logo">
     <h1 id="SiteName">The Weather Site</h1>
   </header>
   <nav id="navigation">
-   <ul id="style">
-    <li id="current"><a href="#" title="Go to the Weather Site home page">Current</a></li>
-    <li id="search"><a href="#" title="Find the weather in a different location">Search</a></li>
-    <li id="franklin"><a href="#" title="Go to Franlkin, ID's Weather">Franklin</a></li>
-    <li id="greenville"><a href="#" title="Go to Greenville's Weather">Greenville</a></li>
-   </ul>
+    <ul id="style">
+      <li id="current"><a href="#" title="Go to the Weather Site home page">Current</a></li>
+      <li id="search"><a href="#" title="Find the weather in a different location">Search</a></li>
+      <li id="franklin"><a href="#" title="Go to Franlkin, ID's Weather">Franklin</a></li>
+      <li id="greenville"><a href="#" title="Go to Greenville's Weather">Greenville</a></li>
+    </ul>
   </nav>
   <main>
     <section id="area">
       <h2 id="town">Franklin, Idaho</h2>
       <dl id="localData">
         <dt>Zip:</dt>
-          <dd id="zip"> 83237</dd>
+        <dd id="zip"> 83237</dd>
         <dt>Elevation:</dt>
-          <dd><span id="elevation">1514.246</span> m/ft</dd>
+        <dd><span id="elevation">1514.246</span> m/ft</dd>
         <dt>Location:</dt>
-          <dd id="location"> 42.07 N, 111.79 W</dd>
-      </dl> 
+        <dd id="location"> 42.07 N, 111.79 W</dd>
+      </dl>
     </section>
-    <div id="tileFormat">
+    <div id="tileFormat" class="forecast">
       <section id="mainWeather" class="tile">
-        <h2 id="tempHead">Temperature</h2>
-        <h2 id="currentTemp">40&deg;F</h2>
+        <p id="tempHead">Temperature</p>
+        <p id="currentTemp">40&deg;F</p>
         <ul id="todayForecast">
           <li id="forecastHigh">64&deg;F</li>
           <li id="forecastLow">41&deg;F</li>
         </ul>
+        <p id="feel">Feels Like: <span id="feelsLike"></span> &deg;F</p>
       </section>
       <section id="mainWind" class="tile">
         <h2 id="windHeader">Wind</h2>
+        <div id="dial" class="#"></div>
         <ul>
           <li id="windSpeed">5 mph</li>
-          <li id="windDirection"><b>Direction:</b> SW</li>
+          <li id="windDirection"><b>Direction:</b> <span id="wd"></span></li>
           <li id="windGusts"><b>Gusts</b> 10-12mph</li>
-        </ul>  
+        </ul>
       </section>
       <section id="summary" class="tile">
         <h3 id="currentCondition">Rain</h3>
@@ -57,26 +61,41 @@
     <section id="hourlyForecast" class="tile">
       <h3 id="HFHeader">Hourly Forecast</h3>
       <ol id="AverageHF">
-        <li>10am:</li><li>41&deg;F|</li>
-        <li>11am:</li><li>41&deg;F|</li> 
-        <li>12pm:</li><li>41&deg;F|</li> 
-        <li>1pm:</li><li>41&deg;F|</li> 
-        <li>2pm:</li><li>41&deg;F|</li> 
-        <li>3pm:</li><li>41&deg;F|</li> 
-        <li>4pm:</li><li>42&deg;F|</li> 
-        <li>5pm:</li><li>44&deg;F|</li> 
-        <li>6pm:</li><li>44&deg;F| </li>
-        <li>7pm:</li><li>46&deg;F|</li> 
-        <li>8pm:</li><li>49&deg;F|</li> 
-        <li>9pm:</li><li>51&deg;F|</li> 
-        <li>10pm:</li><li>55&deg;F</li>
+        <li>10am:</li>
+        <li>41&deg;F|</li>
+        <li>11am:</li>
+        <li>41&deg;F|</li>
+        <li>12pm:</li>
+        <li>41&deg;F|</li>
+        <li>1pm:</li>
+        <li>41&deg;F|</li>
+        <li>2pm:</li>
+        <li>41&deg;F|</li>
+        <li>3pm:</li>
+        <li>41&deg;F|</li>
+        <li>4pm:</li>
+        <li>42&deg;F|</li>
+        <li>5pm:</li>
+        <li>44&deg;F|</li>
+        <li>6pm:</li>
+        <li>44&deg;F| </li>
+        <li>7pm:</li>
+        <li>46&deg;F|</li>
+        <li>8pm:</li>
+        <li>49&deg;F|</li>
+        <li>9pm:</li>
+        <li>51&deg;F|</li>
+        <li>10pm:</li>
+        <li>55&deg;F</li>
       </ol>
     </section>
   </main>
   <footer id="footer">
-   &copy;2019 -- The Weather Site
+    &copy;2019 -- The Weather Site
   </footer>
- </body>
+  <script src="JS/functions.js"></script>
+</body>
+
 </html>
 
 <!-- "Franklin": {
@@ -96,7 +115,7 @@
   *"Zip": 83237,
   "Hourly": [41 F, 41 F, 41 F, 41 F, 41 F, 41 F, 42 F, 44 F, 44 F, 46 F, 49 F, 51 F, 55 F]-->
 
-  <!--"Greenville": {
+<!--"Greenville": {
   "City": "Greenville",
   "State": "SC",
   "High": 72,
