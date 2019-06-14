@@ -7,12 +7,14 @@ console.log('My javascript is being read.');
 const temp = 40;
 const speed = 5;
 const direction = "SW";
-let condition = "fog";
+let condition = "rain";
 let currentCondition = getCondition(condition);
+let meters = 1514.246;
 
 buildWC(speed, temp);
 windDial(direction);
 changeSummaryImage(currentCondition);
+convertMeters(meters);
 
 
 
@@ -128,29 +130,55 @@ function getCondition(condition) {
 // changes the image in the Summary tile
 function changeSummaryImage(currentCondition) {
 
+   // to change the diferences of the summary tile
    const conditionVisual = document.getElementById("conditionVisual");
+
+   // to change the differences of the formated tiles
    const forecast = document.getElementById("tileFormat");
+
+   // to change the statement in the summary tile
+   const statement = document.getElementById("currentCondition");
 
    switch (currentCondition) {
       case "Clear":
          conditionVisual.setAttribute("src", "img/weather-site-images/clear-250-o.jpg");
          forecast.setAttribute("class", "Clear");
+         statement.innerHTML = "Clear";
          break;
       case "Clouds":
          conditionVisual.setAttribute("src", "img/weather-site-images/clouds-300-o.jpg");
          forecast.setAttribute("class", "Clouds");
+         statement.innerHTML = "Clouds";
          break;
       case "Fog":
          conditionVisual.setAttribute("src", "img/weather-site-images/fog-260-o.jpg");
          forecast.setAttribute("class", "Fog");
+         statement.innerHTML = "Fog";
          break;
       case "Rain":
          conditionVisual.setAttribute("src", "img/weather-site-images/rain-275-o.jpg");
          forecast.setAttribute("class", "Rain");
+         statement.innerHTML = "Rain";
          break;
       case "Snow":
          conditionVisual.setAttribute("src", "img/weather-site-images/snow-563h-o.jpg");
          forecast.setAttribute("class", "Snow");
+         statement.innerHTML = "Snow";
          break;
    }
+}
+
+// display the Elevation in Feet or Meters
+function convertMeters(meters) {
+   const elevation = document.getElementById("elevation");
+
+   let ft = meters * 3.28084;
+
+   console.log(ft);
+
+   ft = Math.floor(ft);
+
+   console.log(ft);
+
+   elevation.innerHTML = ft + " ft";
 }
