@@ -7,7 +7,7 @@ console.log('My javascript is being read.');
 const temp = 40;
 const speed = 5;
 const direction = "SW";
-let condition = "rain";
+let condition = "clear";
 let currentCondition = getCondition(condition);
 let meters = 1514.246;
 
