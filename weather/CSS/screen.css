@@ -184,11 +184,15 @@ a:visited {
    text-decoration: none;
 }
 
-#AverageHF {
+#averageHF {
    overflow: scroll;
    display: flex;
-   padding-left: 4px;
-   padding-right: 10px;
+   white-space: nowrap;
+   padding-left: 0px;
+}
+
+#averageHF li {
+   padding-left: 5px;
 }
 
 #dial {
@@ -234,6 +238,10 @@ a:visited {
 #windSpeed {
    margin-bottom: 60px;
    margin-top: -105px;
+}
+
+.hide {
+   display: none;
 }
 
 /* 3. Mobile rules */

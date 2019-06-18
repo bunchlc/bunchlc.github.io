@@ -4,18 +4,8 @@
 console.log('My javascript is being read.');
 
 // variables for function use
-const temp = 40;
-const speed = 5;
-const direction = "SW";
-let condition = "clear";
-let currentCondition = getCondition(condition);
-let meters = 1514.246;
-
-buildWC(speed, temp);
-windDial(direction);
-changeSummaryImage(currentCondition);
-convertMeters(meters);
-
+let date = new Date();
+let nextHour = date.getHours() + 1;
 
 
 // Calculates wind chill
@@ -181,4 +171,31 @@ function convertMeters(meters) {
    console.log(ft);
 
    elevation.innerHTML = ft + " ft";
+}
+
+// convert and format hours to a 12 hour format
+function format_time(hour) {
+   if (hour > 23) {
+      hour -= 24;
+   }
+   let amPM = (hour > 11) ? "pm" : "am";
+   if (hour > 12) {
+      hour -= 12;
+   }
+   if (hour == 0) {
+      hour = "12";
+   }
+   return hour + amPM;
+}
+
+// build the hourly temperatur list
+function buildHourlyData(nextHour, hourlyTemps) {
+   let hourlyListItems = '<li>' + format_time(nextHour) + ': ' + hourlyTemps[0] + '&deg;F |</li>';
+
+   for (let i = 1, x = hourlyTemps.length; i < x; i++) {
+      hourlyListItems += '<li>' + format_time(nextHour + i) + ': ' + hourlyTemps[i] + '&deg;F |</li>';
+   }
+
+   console.log('hourlyList is: ' + hourlyListItems);
+   return hourlyListItems;
 }
