@@ -270,6 +270,14 @@ a:visited {
       width: 100%;
    }
 
+   #style {
+      margin-top: 0px;
+   }
+
+   #footer {
+      margin-bottom: 0px;
+   }
+
    .Clear {
       background-image: url("../img/weather-site-images/clear-760-o.jpg");
    }

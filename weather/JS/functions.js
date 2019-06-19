@@ -137,26 +137,31 @@ function changeSummaryImage(currentCondition) {
    switch (currentCondition) {
       case "Clear":
          conditionVisual.setAttribute("src", "img/weather-site-images/clear-250-o.jpg");
+         conditionVisual.setAttribute("alt", "It is clear outside");
          forecast.setAttribute("class", "Clear");
          statement.innerHTML = "Clear";
          break;
       case "Clouds":
          conditionVisual.setAttribute("src", "img/weather-site-images/clouds-300-o.jpg");
+         conditionVisual.setAttribute("alt", "There are clouds outside");
          forecast.setAttribute("class", "Clouds");
          statement.innerHTML = "Clouds";
          break;
       case "Fog":
          conditionVisual.setAttribute("src", "img/weather-site-images/fog-260-o.jpg");
+         conditionVisual.setAttribute("alt", "It is foggy outside");
          forecast.setAttribute("class", "Fog");
          statement.innerHTML = "Fog";
          break;
       case "Rain":
          conditionVisual.setAttribute("src", "img/weather-site-images/rain-275-o.jpg");
+         conditionVisual.setAttribute("alt", "It is raining outside");
          forecast.setAttribute("class", "Rain");
          statement.innerHTML = "Rain";
          break;
       case "Snow":
          conditionVisual.setAttribute("src", "img/weather-site-images/snow-563h-o.jpg");
+         conditionVisual.setAttribute("alt", "It is snowing outside");
          forecast.setAttribute("class", "Snow");
          statement.innerHTML = "Snow";
          break;
