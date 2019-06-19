@@ -7,11 +7,16 @@ console.log('My javascript is being read.');
 let date = new Date();
 let nextHour = date.getHours() + 1;
 
+// let speed = 51;
+// let temp = 40;
+// let direction = "SW";
+// let condition = "Rain";
+
 
 // Calculates wind chill
 function buildWC(speed, temp) {
    // Declare feelTemp and assign it to the 'feelsLike' location
-   const feelsLike = document.getElementById('feelsLike');
+   let feelsLike = document.getElementById('feelsLike');
 
    // Math to determine what the wc is
    let wc = 35.74 + 0.6215 * temp - 35.75 * Math.pow(speed, 0.16) + 0.4275 * temp * Math.pow(speed, 0.16);
@@ -33,8 +38,8 @@ function buildWC(speed, temp) {
 // determines wind dial direction
 function windDial(direction) {
    // linking the dial and wd variables with the HTML location
-   const dial = document.getElementById("dial");
-   const wd = document.getElementById("wd");
+   let dial = document.getElementById("dial");
+   let wd = document.getElementById("wd");
 
    // switch statement to determine where to point the dial
    // Also handles displaying the direction in text
@@ -121,13 +126,13 @@ function getCondition(condition) {
 function changeSummaryImage(currentCondition) {
 
    // to change the diferences of the summary tile
-   const conditionVisual = document.getElementById("conditionVisual");
+   let conditionVisual = document.getElementById("conditionVisual");
 
    // to change the differences of the formated tiles
-   const forecast = document.getElementById("tileFormat");
+   let forecast = document.getElementById("tileFormat");
 
    // to change the statement in the summary tile
-   const statement = document.getElementById("currentCondition");
+   let statement = document.getElementById("currentCondition");
 
    switch (currentCondition) {
       case "Clear":
@@ -160,7 +165,7 @@ function changeSummaryImage(currentCondition) {
 
 // display the Elevation in Feet or Meters
 function convertMeters(meters) {
-   const elevation = document.getElementById("elevation");
+   let elevation = document.getElementById("elevation");
 
    let ft = meters * 3.28084;
 
