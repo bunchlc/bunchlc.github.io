@@ -8,7 +8,7 @@ let pageNav = document.getElementById('navigation');
 let statusContainer = document.getElementById('status');
 let contentContainer = document.getElementById('main-content');
 
-let weatherURL = "./JS/weather.json";
+let weatherURL = "./js/weather.json";
 
 fetchData(weatherURL);
 
