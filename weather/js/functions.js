@@ -107,7 +107,7 @@ function getCondition(condition) {
    if (lowerCondition.includes("clear") || lowerCondition.includes("sunny") || lowerCondition.includes("warm")) {
       console.log("Clear");
       return "Clear";
-   } else if (lowerCondition.includes("overcast") || lowerCondition.includes("clouds") || lowerCondition.includes("cloudy")) {
+   } else if (lowerCondition.includes("overcast") || lowerCondition.includes("clouds") || lowerCondition.includes("partly cloudy")) {
       console.log("Clouds");
       return "Clouds";
    } else if (lowerCondition.includes("fog") || lowerCondition.includes("low visibility")) {
