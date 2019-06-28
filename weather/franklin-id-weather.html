@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title id="page-title">Local Weather | Franklin, ID</title>
+  <title id="page-title"> | Local Weather</title>
   <meta name="description" content="Latest weather information">
   <meta name="viewport" content="width=device-width">
   <link href="css/screen.css" rel="stylesheet" type="text/css" media="screen">
@@ -16,14 +16,16 @@
   </header>
   <nav id="navigation">
     <ul id="style">
-      <li id="current"><a href="#" title="Go to the Weather Site home page">Current</a></li>
+      <li id="current"><a href="index.html" title="Go to the Weather Site home page">Current</a></li>
       <li id="search"><a href="#" title="Find the weather in a different location">Search</a></li>
       <li id="franklin"><a href="franklin-id-weather.html" title="Go to Franlkin, ID's Weather">Franklin</a></li>
-      <li id="greenville"><a href="greenville-sc-weather.html" title="Go to Greenville's Weather">Greenville</a></li>
+      <li id="greenville"><a href="greenville-sc-weather.html" title="Go to Greenville, SC's Weather">Greenville</a>
+      </li>
+      <li id="springfield"><a href="" title="Go to Springfield, IL's Weather">Springfield</a></li>
     </ul>
   </nav>
 
-  <section id="status">Please click Greenville link to proceed with Grading</section>
+  <section id="status">Please wait while we gather your weather information</section>
 
   <main id="main-content" class="hide">
     <section id="area">
@@ -40,10 +42,10 @@
     <div id="tileFormat" class="forecast">
       <section id="mainWeather" class="tile">
         <p id="tempHead">Temperature</p>
-        <p id="currentTemp">#</p>
+        <p><span id="currentTemp">#</span>&deg;F</p>
         <ul id="todayForecast">
-          <li id="forecastHigh">#</li>
-          <li id="forecastLow">#</li>
+          <li><span id="forecastHigh">#</span>&deg;F</li>
+          <li><span id="forecastLow">#</span>&deg;F</li>
         </ul>
         <p id="feel">Feels Like: <span id="feelsLike"></span> &deg;F</p>
       </section>
@@ -51,7 +53,7 @@
         <h2 id="windHeader">Wind</h2>
         <div id="dial" class="#"></div>
         <ul>
-          <li id="windSpeed">#</li>
+          <li id="windSpeed"></li>
           <li id="windDirection"><b>Direction:</b> <span id="wd"></span></li>
           <li id="windGusts"><b>Gusts</b> <span id="gusts"></span></li>
         </ul>
@@ -74,6 +76,7 @@
     &copy;2019 -- The Weather Site
   </footer>
   <script src="js/functions.js"></script>
+  <script src="js/localdata.js"></script>
 </body>
 
 </html>
