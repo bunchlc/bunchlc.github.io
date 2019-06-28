@@ -1,20 +1,27 @@
 "use strict"
 
 
-
-
-
 let pageNav = document.getElementById('navigation');
 let statusContainer = document.getElementById('status');
 let contentContainer = document.getElementById('main-content');
 
-let weatherURL = "./js/weather.json";
+pageNav.addEventListener("click", function (evt) {
+   let cityName = evt.target.innerHTML;
+   console.log(cityName);
 
-fetchData(weatherURL);
 
-// getting data from the json file
-function fetchData(weatherURL) {
-   let cityName = 'Greenville'; // data we want from the weather.json file
+   // only check for city names
+   switch (cityName) {
+      case "Franklin":
+      case "Greenville":
+      case "Springfield":
+         evt.preventDefault();
+         break;
+   }
+
+
+   let weatherURL = "./js/weather.json";
+
    fetch(weatherURL)
       .then(function (response) {
          if (response.ok) {
@@ -82,12 +89,18 @@ function fetchData(weatherURL) {
 
          // getting hourly data
          let hourly = g.Hourly;
+         console.log(hourly);
 
          /********************DISPLAY EVERYTHING****************/
 
          let pageTitle = document.getElementById('page-title');
 
+         if (pageTitle.childNodes.length > 1) {
+            pageTitle.childNodes[0].remove();
+         }
+
          let fullNameNode = document.createTextNode(fullName);
+
 
          pageTitle.insertBefore(fullNameNode, pageTitle.childNodes[0]);
 
@@ -161,4 +174,5 @@ function fetchData(weatherURL) {
          console.log('There was a fetch problem: ', error.message);
          statusContainer.innerHTML = 'Sorry, the data could not be processed.';
       })
-}
+
+})
