@@ -163,7 +163,7 @@ pageNav.addEventListener("click", function (evt) {
 
          // hourly Forecast
          let contentHourly = document.getElementById('averageHF');
-         contentHourly.innerHTML = buildHourlyData(nextHour, hourly);;
+         contentHourly.innerHTML = buildHourlyData(nextHour, hourly);
 
          // change the status of the containers
          contentContainer.setAttribute('class', ''); // removes the hide class

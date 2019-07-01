@@ -1,12 +1,15 @@
 /********************************
  * Weather Site JavaScript Functions
  *******************************/
-console.log('My javascript is being read.');
+console.log('My functions.js is being read.');
 
 // variables for function use
 let date = new Date();
 let nextHour = date.getHours() + 1;
 var storage = window.localStorage;
+let statusContainer = document.getElementById('status');
+let contentContainer = document.getElementById('main-content');
+
 
 var idHeader = {
    headers: {
@@ -14,7 +17,10 @@ var idHeader = {
    }
 };
 
-// Calculates wind chill
+/*********************************************************
+ * Function :: buildWC
+ * Mathmatetically determines the wind speed
+ *********************************************************/
 function buildWC(speed, temp) {
    // Declare feelTemp and assign it to the 'feelsLike' location
    let feelsLike = document.getElementById('feelsLike');
@@ -34,9 +40,12 @@ function buildWC(speed, temp) {
 
    // displays the wc
    feelsLike.innerHTML = wc;
-}
+} // buildWC Function
 
-// determines wind dial direction
+/*********************************************************
+ * Function :: windDial
+ * Rotates the wind dial to visual display the widn direction
+ *********************************************************/
 function windDial(direction) {
    // linking the dial and wd variables with the HTML location
    let dial = document.getElementById("dial");
@@ -97,9 +106,12 @@ function windDial(direction) {
          wd.innerHTML = diretion;
          break;
    }
-}
+} // windDial Function
 
-// gets the current weather condition
+/*********************************************************
+ * Function :: getCondition
+ * Takes a variety of possible phrases to determine conditions
+ *********************************************************/
 function getCondition(condition) {
    // creates a new variable assignin gin the lowercase version of the parameter for testing
    let lowerCondition = condition.toLowerCase()
@@ -121,9 +133,12 @@ function getCondition(condition) {
       console.log("Snow");
       return "Snow";
    }
-}
+} // getCondition Function
 
-// changes the image in the Summary tile
+/*********************************************************
+ * Function :: changeSummaryImage
+ * uses a switch statement to change the visual conditions
+ *********************************************************/
 function changeSummaryImage(currentCondition) {
 
    // to change the diferences of the summary tile
@@ -167,9 +182,12 @@ function changeSummaryImage(currentCondition) {
          statement.innerHTML = "Snow";
          break;
    }
-}
+} // changeSummaryImage Function
 
-// display the Elevation in Feet or Meters
+/*********************************************************
+ * Function :: convertMeters
+ * converts meters to feet
+ *********************************************************/
 function convertMeters(meters) {
    let elevation = document.getElementById("elevation");
 
@@ -182,9 +200,12 @@ function convertMeters(meters) {
    console.log(ft);
 
    elevation.innerHTML = ft + " ft";
-}
+} // convertMeters Function
 
-// convert and format hours to a 12 hour format
+/*********************************************************
+ * Function :: format_time
+ * used in tandum with buildHourlyData
+ *********************************************************/
 function format_time(hour) {
    if (hour > 23) {
       hour -= 24;
@@ -197,9 +218,12 @@ function format_time(hour) {
       hour = "12";
    }
    return hour + amPM;
-}
+} // format_time Function
 
-// build the hourly temperatur list
+/*********************************************************
+ * Function :: buildHourlyData
+ * builds the HTML to late display the hourly forecast tile
+ *********************************************************/
 function buildHourlyData(nextHour, hourlyTemps) {
    let hourlyListItems = '<li>' + format_time(nextHour) + ': ' + hourlyTemps[0] + '&deg;F |</li>';
 
@@ -209,9 +233,12 @@ function buildHourlyData(nextHour, hourlyTemps) {
 
    console.log('hourlyList is: ' + hourlyListItems);
    return hourlyListItems;
-}
+} // buildHourlyData Function
 
-// Gets location information from the NWS API
+/*********************************************************
+ * Function :: getLocation
+ * gets location (if allowed) o whoever is making request
+ *********************************************************/
 function getLocation(locale) {
    const URL = "https://api.weather.gov/points/" + locale;
    // NWS User-Agent header (built above) will be the second parameter 
@@ -235,11 +262,23 @@ function getLocation(locale) {
          let stationsURL = data.properties.observationStations;
          // Call the function to get the list of weather stations
          getStationId(stationsURL);
+
+         // Get the URL to the hourly forecast and pass into 
+         // the getHourly function
+         let hourlyForecast = data.properties.forecastHourly;
+         getHourly(hourlyForecast);
+
+         // Get the URL to the high and low temp forecast for day
+         let highLow = data.properties.forecast;
+         getHighLow(highLow);
       })
       .catch(error => console.log('There was a getLocation error: ', error))
 } // end getLocation function
 
-// Gets weather station list and the nearest weather station ID from the NWS API
+/*********************************************************
+ * Function :: getStationId
+ * Gets local areas stationId to fetch appropriate weather data
+ *********************************************************/
 function getStationId(stationsURL) {
    // NWS User-Agent header (built above will be the second parameter
    fetch(stationsURL, idHeader)
@@ -267,9 +306,12 @@ function getStationId(stationsURL) {
          getWeather(stationId);
       })
       .catch(error => console.log('There was a getStationId error: ', error))
-}
+} // getStationId Function
 
-// Gets current weather information for a specific weather station from the NWS API
+/************************************************************
+ * Function :: getWeather
+ * gets all of the information and stores it locally
+ ************************************************************/
 function getWeather(stationId) {
    // This is the URL for current observation data
    const URL = 'https://api.weather.gov/stations/' + stationId + '/observations/latest';
@@ -288,14 +330,154 @@ function getWeather(stationId) {
 
          // Store weather information to localStorage
          storage.setItem("locTemp", data.properties.temperature.value);
-         storage.setItem("locHigh", data.properties.maxTemperatureLast24Hours.value);
-         storage.setItem("locLow", data.properties.minTemperatureLast24Hours.value);
          storage.setItem("locWind", data.properties.windSpeed.value);
-         storage.setItem("windDirection", data.properties.windDirection.value);
          storage.setItem("WindGusts", data.properties.windGust.value);
 
          // Build the page for viewing
 
       })
       .catch(error => console.log('There was a getWeather error: ', error))
+   buildPage();
 } // end getWeather function
+
+/************************************************************
+ * Function :: getHourly
+ * gets next 13 hour temp forecast and stores it locally
+ *    Also gets the wind direction for ease of other functions
+ ************************************************************/
+function getHourly(URL) {
+   // fetch the URL and make sure it returns the right response
+   fetch(URL, idHeader)
+      .then(function (response) {
+         if (response.ok) {
+            return response.json();
+         }
+         throw new ERROR('Response not OK.');
+      })
+      .then(function (data) {
+         // make sure is got the right URL
+         console.log('Json object from getHourly function:');
+         console.log(data);
+
+         // Creating an array to hold 13 hours worth of temp
+         // forecasts in degrees F
+         let hourly = [];
+         for (let i = 0; i < 13; i++) {
+            hourly[i] = data.properties.periods[i].temperature;
+         }
+         console.log(hourly);
+         // use buildHourlyData to get ready to build the page
+         let hourlyTemps = buildHourlyData(nextHour, hourly);
+         // Store it locally
+         storage.setItem("hourly", hourlyTemps);
+         storage.setItem("windDirection", data.properties.periods[0].windDirection);
+         // Writes the Hourly temps to HTML
+         let contentHourly = document.getElementById('averageHF');
+         contentHourly.innerHTML = buildHourlyData(nextHour, hourly);
+
+      })
+      .catch(error => console.log('There was a getHourly error: ', error))
+} // getHourly Function
+
+/************************************************************
+ * Function :: getHighLow
+ * Locates the high and low of today's forecast
+ ************************************************************/
+function getHighLow(URL) {
+   fetch(URL, idHeader)
+      .then(function (response) {
+         if (response.ok) {
+            return response.json();
+         }
+         throw new ERROR('Response not OK.');
+      })
+      .then(function (data) {
+         // Let's see what we got back
+         console.log('Json object from getHighLow function:');
+         console.log(data);
+
+         // store the local high, local low, and current summary locally
+         storage.setItem("locHigh", data.properties.periods[0].temperature);
+         storage.setItem("locLow", data.properties.periods[1].temperature);
+         storage.setItem("currentCondition", data.properties.periods[0].shortForecast);
+      })
+      .catch(error => console.log('There was a getHighLow error: ', error))
+} //getHighLow function
+
+/************************************************************
+ * Function :: buildPage
+ * Puts the local current weather into the WeatherPage template
+ ************************************************************/
+function buildPage() {
+
+   // get City & state, combine them, and write to HTML
+   let locName = storage.getItem("locName");
+   let locState = storage.getItem("locState");
+   let fullName = locName + ', ' + locState;
+   console.log("Fullname: " + fullName);
+   let contentHeading = document.getElementById('town');
+   contentHeading.innerHTML = fullName;
+
+   // gets elevation, converts it to meters, and writes to HTML
+   let elev = storage.getItem("stationElevation");
+   console.log("Elevation after conversion: ");
+   convertMeters(elev);
+
+   // Get long & lat, reduce decimals, combine, and write to HTML
+   let locLong = storage.getItem("locLong");
+   let locLat = storage.getItem("locLat");
+   let fixedLong = Number(locLong).toFixed(2);
+   let fixedLat = Number(locLat).toFixed(2);
+   let fullLocation = fixedLong + ', ' + fixedLat;
+   console.log("long, lat: " + fullLocation);
+   let contentLocation = document.getElementById('location');
+   contentLocation.innerHTML = fullLocation;
+
+   // Gets current temp, deletes decimals, and writes to HTML
+   let locTemp = storage.getItem("locTemp");
+   let fixedTemp = Number(locTemp).toFixed();
+   console.log("Temp: " + fixedTemp + " C");
+   let contentCurrent = document.getElementById('currentTemp');
+   contentCurrent.innerHTML = fixedTemp;
+
+   // Gets forecasted high, and writes to HTML
+   let locHigh = storage.getItem("locHigh");
+   console.log("High: " + locHigh);
+   let contentHigh = document.getElementById('forecastHigh');
+   contentHigh.innerHTML = locHigh;
+
+   // Gets forecasted low, and writes to HTML
+   let locLow = storage.getItem("locLow");
+   console.log("Low: " + locLow);
+   let contentLow = document.getElementById('forecastLow');
+   contentLow.innerHTML = locLow;
+
+   // Gets current wind, and writes with units to HTML
+   let locWind = storage.getItem("locWind");
+   console.log("WindSpeed: " + locWind);
+   let contentWind = document.getElementById('windSpeed');
+   contentWind.innerHTML = locWind + ' mph';
+
+   // Uses the current wind and temperature to build wind chill
+   console.log("Wind Chill: ");
+   buildWC(locWind, locTemp);
+
+   // handles the wind dial direction
+   let wd = storage.getItem("windDirection");
+   windDial(wd);
+
+   // Gets gust info and writes it with units to HTML
+   let gusts = storage.getItem("WindGusts");
+   console.log("Gusts: " + gusts);
+   let contentGusts = document.getElementById('gusts');
+   contentGusts.innerHTML = gusts + ' mph';
+
+   // Sets the current condition 
+   let summary = storage.getItem("currentCondition");
+   console.log("Summary: " + summary);
+   changeSummaryImage(summary);
+
+
+   contentContainer.setAttribute('class', ''); // removes the hide class
+   statusContainer.setAttribute('class', 'hide'); // hides teh status container
+}
