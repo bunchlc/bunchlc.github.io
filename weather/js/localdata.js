@@ -9,7 +9,6 @@ pageNav.addEventListener("click", function (evt) {
    let cityName = evt.target.innerHTML;
    console.log(cityName);
 
-
    // only check for city names
    switch (cityName) {
       case "Franklin":
