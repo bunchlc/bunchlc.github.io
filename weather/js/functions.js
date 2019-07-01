@@ -7,8 +7,6 @@ console.log('My functions.js is being read.');
 let date = new Date();
 let nextHour = date.getHours() + 1;
 var storage = window.localStorage;
-let statusContainer = document.getElementById('status');
-let contentContainer = document.getElementById('main-content');
 
 
 var idHeader = {
@@ -433,7 +431,7 @@ function buildPage() {
    let contentLocation = document.getElementById('location');
    contentLocation.innerHTML = fullLocation;
 
-   // Gets current temp, deletes decimals, and writes to HTML
+   // Gets current temp, deletes decimals, converts to F, and writes to HTML
    let locTemp = storage.getItem("locTemp");
    let fixedTemp = Number(locTemp).toFixed();
    console.log("Temp: " + fixedTemp + " C");
@@ -477,7 +475,8 @@ function buildPage() {
    console.log("Summary: " + summary);
    changeSummaryImage(summary);
 
-
-   contentContainer.setAttribute('class', ''); // removes the hide class
-   statusContainer.setAttribute('class', 'hide'); // hides teh status container
+   let statusUpdate = document.getElementById('status');
+   let displayEverything = document.getElementById('main-content');
+   displayEverything.setAttribute('class', ''); // removes the hide class
+   statusUpdate.setAttribute('class', 'hide'); // hides the status container
 }
