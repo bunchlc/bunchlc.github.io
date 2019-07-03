@@ -158,8 +158,8 @@ pageNav.addEventListener("click", function (evt) {
          changeSummaryImage(currentCondition);
 
          // precipitation
-         let contentPrecip = document.getElementById('precip');
-         contentPrecip.innerHTML = locPrecip;
+         let contentPrecip = document.getElementById('sumText');
+         contentPrecip.innerHTML = "Precipitation: " + locPrecip + "%";
 
          // hourly Forecast
          let contentHourly = document.getElementById('averageHF');

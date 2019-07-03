@@ -138,10 +138,8 @@ dd {
    margin: 8px;
 }
 
-#currentTemp {
-   font-size: 3em;
-   margin: 0px;
-   font-style: normal;
+#mainWeather div {
+   font-size: 4em;
 }
 
 #forecastHigh {

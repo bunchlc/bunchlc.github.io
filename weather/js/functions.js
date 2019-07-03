@@ -329,7 +329,6 @@ function getWeather(stationId) {
          // Store weather information to localStorage
          storage.setItem("locTemp", data.properties.temperature.value);
          storage.setItem("locWind", data.properties.windSpeed.value);
-         storage.setItem("WindGusts", data.properties.windGust.value);
 
          // Build the page for viewing
 
@@ -394,13 +393,26 @@ function getHighLow(URL) {
          console.log('Json object from getHighLow function:');
          console.log(data);
 
-         // store the local high, local low, and current summary locally
+         // store the local high, local low, current summary,
+         // and detailed forecast locally
          storage.setItem("locHigh", data.properties.periods[0].temperature);
          storage.setItem("locLow", data.properties.periods[1].temperature);
          storage.setItem("currentCondition", data.properties.periods[0].shortForecast);
+         storage.setItem("detailedForecast", data.properties.periods[0].detailedForecast);
+         storage.setItem("WindGusts", data.properties.periods[0].windSpeed);
       })
       .catch(error => console.log('There was a getHighLow error: ', error))
 } //getHighLow function
+
+/************************************************************
+ * Function :: coverToFahrenheit
+ * Does simple math to convert from C to F and deletes decimal
+ ************************************************************/
+function converToFahrenheit(celcius) {
+   let fahr = (celcius * 1.8) + 32;
+   let fixedFahr = Number(fahr).toFixed();
+   return fixedFahr;
+}
 
 /************************************************************
  * Function :: buildPage
@@ -415,6 +427,10 @@ function buildPage() {
    console.log("Fullname: " + fullName);
    let contentHeading = document.getElementById('town');
    contentHeading.innerHTML = fullName;
+
+   // Setting the page title to the local location
+   let pageTitle = document.getElementById('page-title');
+   pageTitle.innerHTML = fullName + " | Local Weather";
 
    // gets elevation, converts it to meters, and writes to HTML
    let elev = storage.getItem("stationElevation");
@@ -433,8 +449,8 @@ function buildPage() {
 
    // Gets current temp, deletes decimals, converts to F, and writes to HTML
    let locTemp = storage.getItem("locTemp");
-   let fixedTemp = Number(locTemp).toFixed();
-   console.log("Temp: " + fixedTemp + " C");
+   let fixedTemp = converToFahrenheit(locTemp);
+   console.log("Temp: " + fixedTemp + " F");
    let contentCurrent = document.getElementById('currentTemp');
    contentCurrent.innerHTML = fixedTemp;
 
@@ -458,22 +474,30 @@ function buildPage() {
 
    // Uses the current wind and temperature to build wind chill
    console.log("Wind Chill: ");
-   buildWC(locWind, locTemp);
+   buildWC(locWind, fixedTemp);
 
    // handles the wind dial direction
    let wd = storage.getItem("windDirection");
+   console.log("Wind Direction before winDial Function: " + wd);
    windDial(wd);
 
    // Gets gust info and writes it with units to HTML
    let gusts = storage.getItem("WindGusts");
    console.log("Gusts: " + gusts);
    let contentGusts = document.getElementById('gusts');
-   contentGusts.innerHTML = gusts + ' mph';
+   contentGusts.innerHTML = gusts;
 
    // Sets the current condition 
    let summary = storage.getItem("currentCondition");
    console.log("Summary: " + summary);
-   changeSummaryImage(summary);
+   let fixedSummary = getCondition(summary);
+   changeSummaryImage(fixedSummary);
+
+   let detailed = storage.getItem("detailedForecast");
+   console.log("Detailed Forecast: " + detailed);
+   let contentDetailed = document.getElementById('sumText');
+   contentDetailed.innerHTML = detailed;
+
 
    let statusUpdate = document.getElementById('status');
    let displayEverything = document.getElementById('main-content');
