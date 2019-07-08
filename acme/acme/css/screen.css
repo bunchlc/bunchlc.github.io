@@ -1,0 +1,134 @@
+/***************************************************
+* Table of COntents
+* 1.--Imports
+* 2.--General Styles
+* --2a.--Navigatioin
+* --2b.--Body Content
+* --2c.--Footer Content
+* 3.--Mobile First 
+* 4.--Large Screen
+****************************************************/
+/* 1.  Imports (fonts and supplementary stylesheets) */
+/* 1.1 Normalize Import */
+@import url('normalize.css');
+/* 1.2 Google Font Import */
+@import url('https://fonts.googleapis.com/css?family=Sansita');
+
+/* General Styles */
+html {
+   box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+   box-sizing: inherit
+}
+
+/* Naviagation */
+nav {
+   background-color: #de2226;
+   padding-top: 1px;
+   padding-bottom: 1px;
+}
+
+ul,
+li {
+   text-decoration: none;
+   list-style: none;
+   padding-left: 0px;
+}
+
+#nav-style {
+   padding-left: 0;
+   padding-right: 22%;
+   display: flex;
+   justify-content: space-around;
+}
+
+a:link {
+   color: white;
+   text-decoration: none;
+}
+
+a:hover {
+   color: white;
+   text-decoration: underline;
+}
+
+a:visited {
+   color: white;
+   text-decoration: none;
+}
+
+#content-title {
+   margin: 0px;
+}
+
+/* Body Content */
+body {
+   font-family: helvetica, verdana, sans-serif;
+   font-size: 20px;
+   margin-left: 1em;
+   margin-right: 1em;
+   background-image: url("../images/site/background.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+#body-div {
+   background-color: white;
+   max-width: 960px;
+   margin: 0 auto;
+}
+
+#main-seperate {
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   background-color: black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: sansita, Eurostyle, sans-serif;
+}
+
+/* Footer Content */
+footer {
+   text-align: center;
+}
+
+p {
+   font-size: 15px;
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+
+/* Mobile Rules */
+@media screen and (max-width: 759px) {
+   #nav-style {
+      padding-right: 0px;
+   }
+
+   ul,
+   li {
+      font-size: 15px;
+   }
+
+   body {
+      margin: 0px;
+   }
+
+   p {
+      font-size: 10px;
+   }
+}
+
+/* Larger Rules */
+@media screen and (min-width: 760px) {}
