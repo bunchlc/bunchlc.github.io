@@ -32,8 +32,10 @@ nav {
    padding-bottom: 1px;
 }
 
-ul,
-li {
+nav ul,
+nav li,
+#feat-adv ul,
+#feat-adv li {
    text-decoration: none;
    list-style: none;
    padding-left: 0px;
@@ -46,29 +48,25 @@ li {
    justify-content: space-around;
 }
 
-a:link {
+nav a {
    color: white;
    text-decoration: none;
 }
 
-a:hover {
+nav a:hover {
    color: white;
    text-decoration: underline;
 }
 
-a:visited {
+nav a:visited {
    color: white;
    text-decoration: none;
-}
-
-#content-title {
-   margin: 0px;
 }
 
 /* Body Content */
 body {
    font-family: helvetica, verdana, sans-serif;
-   font-size: 20px;
+   font-size: 1.2em;
    margin-left: 1em;
    margin-right: 1em;
    background-image: url("../images/site/background.jpg");
@@ -80,6 +78,57 @@ body {
    background-color: white;
    max-width: 960px;
    margin: 0 auto;
+}
+
+#main-page {
+   position: relative;
+}
+
+#featured-image {
+   height: 100%;
+   width: 100%;
+}
+
+#feat-adv {
+   color: #de2226;
+   position: absolute;
+   margin-top: 27px;
+   right: auto;
+   left: 64%;
+   top: 0;
+   bottom: 605px;
+}
+
+#actionbtn {
+   width: 100%;
+}
+
+#review-head {
+   margin-top: 0px;
+}
+
+#recipe-head {
+   margin: 0px;
+}
+
+#recipes {
+   margin: 0px;
+   display: flex;
+   flex-wrap: wrap;
+   align-content: space-between;
+}
+
+dd {
+   margin-left: 0px;
+}
+
+#content-title {
+   margin: 0px;
+   position: relative;
+}
+
+#featuredImage {
+   max-width: 960px;
 }
 
 #main-seperate {
@@ -127,6 +176,14 @@ p {
 
    p {
       font-size: 10px;
+   }
+
+   #feat-adv {
+      top: 19px;
+   }
+
+   #feat-adv li {
+      font-size: 2.5vw;
    }
 }
 

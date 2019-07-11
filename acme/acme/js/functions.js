@@ -20,8 +20,10 @@ function loadPage() {
       })
       .then(function (data) {
          console.log(data);
+         console.log(Object.keys(data));
+         let keys = Object.keys(data);
          let navigation = document.getElementById("nav-style");
-         navigation.innerHTML = buildNav();
+         navigation.innerHTML += buildNav(keys);
       })
 } // loadPage function
 
@@ -29,8 +31,11 @@ function loadPage() {
  * Function :: 
  * 
  ************************************************************/
-function buildNav() {
-   let navListItems = '<li><a>Home</a></li>';
+function buildNav(data) {
+   let navListItems = '<li><a href="">Home</a></li>';
+   for (let i = 0; i < 4; i++) {
+      navListItems += '<li><a href="">' + data[i] + '</a></li>';
+   }
 
    return navListItems;
 } // buildNav function
