@@ -97,6 +97,7 @@ body {
    left: 64%;
    top: 0;
    bottom: 605px;
+   padding-left: 0px;
 }
 
 #actionbtn {
@@ -113,18 +114,28 @@ body {
 
 #recipes {
    display: flex;
+   width: 320px;
+   flex-wrap: wrap;
 }
 
 #pulledBBQ,
 #potPie,
 #soup,
 #tacos {
-   margin: 2px;
-   display: flex;
-   flex-flow: column wrap;
+   width: 156px;
+   text-align: center;
+   margin-left: 2px;
+   margin-right: 2px;
 }
 
-
+#pBBQ,
+#pp,
+#s,
+#t {
+   background-color: #cdcbcd;
+   padding-right: 45px;
+   padding-left: 45px;
+}
 
 dd {
    margin-left: 0px;
@@ -196,4 +207,9 @@ p {
 }
 
 /* Larger Rules */
-@media screen and (min-width: 760px) {}
+@media screen and (min-width: 760px) {
+   #reviewsNrecipes {
+      display: flex;
+      flex-direction: row-reverse;
+   }
+}
