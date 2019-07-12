@@ -112,11 +112,19 @@ body {
 }
 
 #recipes {
-   margin: 0px;
    display: flex;
-   flex-wrap: wrap;
-   align-content: space-between;
 }
+
+#pulledBBQ,
+#potPie,
+#soup,
+#tacos {
+   margin: 2px;
+   display: flex;
+   flex-flow: column wrap;
+}
+
+
 
 dd {
    margin-left: 0px;
@@ -179,7 +187,7 @@ p {
    }
 
    #feat-adv {
-      top: 19px;
+      top: -19px;
    }
 
    #feat-adv li {
