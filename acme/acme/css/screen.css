@@ -22,7 +22,7 @@ html {
 *,
 *:before,
 *:after {
-   box-sizing: inherit
+   box-sizing: inherit;
 }
 
 /* Naviagation */
@@ -167,6 +167,31 @@ h6 {
    font-family: sansita, Eurostyle, sans-serif;
 }
 
+#product-img {
+   width: 70%;
+   padding-left: 38px;
+}
+
+/* #description {} */
+
+#manNrev {
+   list-style: none;
+}
+
+#manu-const,
+#rev-const {
+   font-weight: bold;
+}
+
+#manufacturer,
+#revs {
+   font-weight: normal;
+}
+
+#price {
+   color: red;
+}
+
 /* Footer Content */
 footer {
    text-align: center;
@@ -176,6 +201,10 @@ p {
    font-size: 15px;
    margin-top: 0px;
    margin-bottom: 0px;
+}
+
+.hide {
+   display: none;
 }
 
 /* Mobile Rules */
@@ -211,5 +240,33 @@ p {
    #reviewsNrecipes {
       display: flex;
       flex-direction: row-reverse;
+   }
+
+   #product-display {
+      display: flex;
+      padding-bottom: 80px;
+   }
+
+   #product-img {
+      width: 40%;
+      height: 325px;
+   }
+
+   #product-2nd {
+      padding-left: 2%;
+   }
+
+   #manNrev {
+      padding-left: 0px;
+   }
+
+   #description,
+   #manNrev {
+      font-size: 200%;
+      padding-right: 30px;
+   }
+
+   #price {
+      font-size: 300%;
    }
 }
