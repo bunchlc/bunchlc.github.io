@@ -172,7 +172,9 @@ h6 {
    padding-left: 38px;
 }
 
-/* #description {} */
+#description {
+   font-size: 100%;
+}
 
 #manNrev {
    list-style: none;
