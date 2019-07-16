@@ -106,8 +106,10 @@ pageNav.addEventListener("click", function (evt) {
          /************ SETTING ALL THE DATA ************/
 
          // setting the title of the page
+         let tabTitle = document.getElementById('page-title');
          let contentTitle = document.getElementById('content-title');
          contentTitle.innerHTML = locName;
+         tabTitle.innerHTML = locName;
 
          // setting the image path of the product
          let productImage = document.getElementById('product-img');
